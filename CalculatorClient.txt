@@ -1,0 +1,47 @@
+
+CalculatorClient
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.net.MalformedURLException;
+import java.rmi.NotBoundException;
+public class CalculatorClient
+{
+public static void main(String [] args)
+{
+try
+{
+
+Calc c = (Calc)
+Naming.lookup("rmi://localhost/CalculatorService");
+System.out.println( c.subtraction(4, 3) );
+System.out.println( c.addition(4, 5) );
+System.out.println( c.multiplication(3, 6) );
+System.out.println( c.divition(9, 3) );
+}
+catch (MalformedURLException murle)
+{
+System.out.println();
+System.out.println("MalformedURLException");
+System.out.println(murle);
+}
+catch (RemoteException re)
+{
+System.out.println();
+System.out.println("RemoteException");
+System.out.println(re);
+}
+catch (NotBoundException nbe)
+{
+System.out.println();
+System.out.println("NotBoundException");
+System.out.println(nbe);
+}
+catch (java.lang.ArithmeticExceptionae)
+{
+System.out.println();
+System.out.println("java.lang.ArithmeticException");
+System.out.println(ae);
+}
+}
+}
+Output:
