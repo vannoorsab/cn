@@ -1,0 +1,22 @@
+
+Calcserv.java
+import java.rmi.Naming;
+public class CalcServer
+{
+CalcServer()
+{
+try
+{
+Calc c = new Calcimpl();
+Naming.rebind("rmi://localhost:1099/CalculatorService", c);
+}
+ catch (Exception e)
+{
+System. out. println ("Exception:"+e);
+}
+}
+public static void main(String args[])
+{
+new CalcServer();
+}
+}
